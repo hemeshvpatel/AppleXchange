@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   get '/listings/new_laptop', to: 'listings#new_laptop', as: 'newlaptop'
   resources :listings, only: [:create, :show]
   resources :products, only: [:show]
-  get '/', to: 'users#index', as: 'home'
+  get '/', to: 'products#index', as: 'home'
   resources :users, only: [:new, :create]
+  
+  #sessions routes
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  post '/logout', to: 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
