@@ -18,6 +18,9 @@
   <%= form.label "Memory: " %>
   <%= form.select :storage, ['4gb', '6gb', '8gb']%>
     <br><br>
+  <%= form.label "Price: "%>
+  <%= form.number_field :price %>
+    <br><br>
   <%= form.submit "Create Listing" %>
 <% end %>
 
