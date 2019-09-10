@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_220806) do
+ActiveRecord::Schema.define(version: 2019_09_10_151508) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "listing_id"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2019_09_09_220806) do
     t.string "memory"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "active", default: true
+    t.float "price"
   end
 
   create_table "products", force: :cascade do |t|
