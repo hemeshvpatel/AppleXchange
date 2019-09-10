@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :listings, only: [:create, :show]
   resources :products, only: [:show]
   get '/', to: 'products#index', as: 'home'
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
   
   #sessions routes
   get '/login', to: 'sessions#new'

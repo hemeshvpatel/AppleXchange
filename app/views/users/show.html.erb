@@ -1,0 +1,14 @@
+<h1><%= @user.username %></h1>
+
+<h2>My Transactions:</h2>
+
+<h2>My Active Listings:</h2>
+<% @user.active_listings.each do |listing| %>
+    <%= link_to listing.product.name, listing_path(listing) %><br>
+<% end %>
+
+<h2>Closed Listings</h2>
+<% @user.inactive_listings.each do |listing| %>
+    <%= link_to listing.product.name, listing_path(listing) %><br>
+<% end %>
+
