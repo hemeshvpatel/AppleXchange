@@ -10,4 +10,12 @@ class User < ApplicationRecord
     def full_name
         self.first_name + " " + self.last_name
     end
+
+    def active_listings
+        self.listings.select {|listing| listing.active == true}
+    end
+
+    def inactive_listings
+        self.listings.select {|listing| listing.active == false}
+    end
 end
