@@ -3,8 +3,10 @@ class User < ApplicationRecord
     has_many :products, through: :listings
     has_many :reviews
     has_many :comments
+    has_many :exchanges
     validates :username, uniqueness: true
     validates :username, length: {minimum: 4}
+
 
     has_secure_password
 
