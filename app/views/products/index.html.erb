@@ -1,1 +1,23 @@
-<h1>"WHAAAAT You logged in!"</h1>
+<h1>"Welcome to AppleXchange"</h1>
+<h2>"A marketplace for buying and selling iPhones and Macbooks"</h2<>
+<h4> <font color="red">"Currently in views/products/index.html.erb"</font> </h4>
+
+<h3> iPhones </h3>
+
+
+    <% @products.each do |product| %>
+        <% if product.type_id == 1 %>
+            <%= link_to image_tag(product.image_url), product_path(product) %>
+            <label> <%=product.name%> </label>
+        <% end %>
+    <% end %>
+
+
+<h3> Macbooks </h3>
+
+    <% @products.each do |product| %>
+        <% if product.type_id == 2 %>
+            <%= link_to image_tag(product.image_url), product_path(product)%>
+            <label> <%=product.name%> </label>
+        <% end %>
+    <% end %>
