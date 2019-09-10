@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :exchanges, only: [:show, :create]
-  post '/listings/:id', to: 'comments#create'
-  post '/products/:id', to: 'reviews#create'
+  #post '/listings/:id', to: 'comments#create'
+  #post '/products/:id', to: 'reviews#create'
   get '/listings/new_phone', to: 'listings#new_phone', as: 'newphone'
   get '/listings/new_laptop', to: 'listings#new_laptop', as: 'newlaptop'
   resources :listings, only: [:create, :show]

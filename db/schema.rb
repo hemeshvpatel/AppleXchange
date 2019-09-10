@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_09_10_191920) do
+=======
+ActiveRecord::Schema.define(version: 2019_09_10_183036) do
+>>>>>>> origin/master
 
   create_table "comments", force: :cascade do |t|
     t.integer "listing_id"
@@ -46,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_09_10_191920) do
     t.string "model"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_url"
   end
 
   create_table "reviews", force: :cascade do |t|
