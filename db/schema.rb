@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2019_09_10_183036) do
     t.string "memory"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "active", default: true
+    t.float "price"
   end
 
   create_table "products", force: :cascade do |t|
