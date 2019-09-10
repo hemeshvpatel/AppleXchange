@@ -9,5 +9,16 @@
 <h4> Storage: <%= @listing.storage %> </h4>
 <h4> Memory: <%= @listing.memory %> </h4>
 
+<%= form_with scope: :exchange, url: exchanges_path do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :listing_id, value: @listing.id%>
+    <% if @listing.active == false %>
+        <h4>SOLD</h4>
+    <% else %>
+        <%= f.submit "Buy Now" %>
+    <% end %>
+<% end %>
+
+
 <h2> Comments Section: </h2>
 

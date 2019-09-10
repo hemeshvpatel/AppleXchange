@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_09_10_191920) do
-=======
-ActiveRecord::Schema.define(version: 2019_09_10_183036) do
->>>>>>> origin/master
 
   create_table "comments", force: :cascade do |t|
     t.integer "listing_id"

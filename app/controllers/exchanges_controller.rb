@@ -2,9 +2,10 @@ class ExchangesController < ApplicationController
 
     def create
         @exchange = Exchange.create(exchange_params)
-        @exchange.user.balance - @exchange.listing.price
-        @exchange.listing.user + @exchange.listing.price
-        @exchange.listing.toggle(:active)
+        @exchange.buy
+        @exchange.sell
+        @exchange.listing.toggle(:active).save!
+        @exchange.save
         redirect_to exchange_path(@exchange)
     end
 
