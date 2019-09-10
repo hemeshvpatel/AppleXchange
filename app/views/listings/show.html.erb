@@ -1,1 +1,13 @@
+<h1> <%= "#{@listing.product.name} [#{@listing.product.model}]" %> </h1>
 <h4> <font color="red">"Currently in views/listings/show.html.erb"</font> </h4>
+
+<h3> Seller: <%= @listing.user.full_name %>
+<h3> Price: $<%= @listing.price%> </h3>
+
+<h4> Condition: <%= @listing.condition %> </h4>
+<h4> Color: <%= @listing.color %> </h4>
+<h4> Storage: <%= @listing.storage %> </h4>
+<h4> Memory: <%= @listing.memory %> </h4>
+
+<h2> Comments Section: </h2>
+
