@@ -15,6 +15,8 @@ iphone_X = Product.create(name: "iPhone X", type_id: 1, model: "A1X00")
 iphone_XR = Product.create(name: "iPhone XR", type_id: 1, model: "A1XR0")
 iphone_XS = Product.create(name: "iPhone XS", type_id: 1, model: "A1XS0")
 iphone_XS_MAX = Product.create(name: "iPhone XS Max", type_id: 1, model: "A1XSM")
+iphone_8 = Product.create(name: "iPhone 8", type_id: 1, model: "A18SM")
+iphone_8_PLUS = Product.create(name: "iPhone 8 Plus", type_id: 1, model: "A18PL")
 
 #Creating all laptop products that users can select from:
 macBook_12 = Product.create(name: "MacBook ", type_id: 2, model: "AMB12")
