@@ -2,12 +2,13 @@ class UsersController < ApplicationController
   before_action :require_login, only: [:show]
 
     def new
+      render layout: false
     end
 
     def create
         @user = User.create(user_params)
         if @user.valid?
-          redirect_to login_path
+          redirect_to home_path
         else
           redirect_to new_user_path
         end

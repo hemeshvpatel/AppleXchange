@@ -9,6 +9,21 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav>
+    <%= link_to "AppleXchange", home_path %>
+
+    <% if !logged_in? %>
+      <%= render '/sessions/form'%>
+      <%= link_to "Register", new_user_path %>
+    <% else %>
+      <%= current_user.full_name %>
+      <%= link_to "View Profile", user_path(current_user.id) %>
+      <%= button_to "Logout", logout_path, method: 'delete' %>
+      <%= link_to "Create a New iPhone Listing", newiphone_path %>
+      <%= link_to "Create a New MacBook Listing", newmacbook_path %>
+    <% end %>
+  </nav>
+
   <body>
     <%= yield %>
   </body>
