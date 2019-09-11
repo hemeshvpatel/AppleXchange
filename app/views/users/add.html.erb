@@ -1,0 +1,14 @@
+<label>Please select a payment option:</label>
+<select>
+  <option value="visa">Visa</option>
+  <option value="mastercard">MasterCard</option>
+  <option value="amex">American Express</option>
+  <option value="discover">Discover</option>
+</select>
+<br>
+
+<label>Please enter the amount you would like to add to your account:</label><br>
+<%= form_with scope: :user, url: user_path(@user) do |form| %>
+    $<%= form.number_field :amount, step: "0.01" %><br>
+    <%= form.submit "Submit" %>
+<% end %>
