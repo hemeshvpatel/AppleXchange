@@ -9,6 +9,6 @@ class Exchange < ApplicationRecord
 
     def sell
         self.listing.user.balance = self.listing.user.balance + self.listing.price
-        self.listing.save
+        self.listing.user.save
     end
 end
