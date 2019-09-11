@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
   #get '/listings/:id/new_comment', to: 'comments#new'
   #post '/listings/:id', to: 'comments#create'
-  get '/reviews/new', to: 'reviews#new'
-  post '/products/:id', to: 'reviews#create'
-  get '/listings/new_phone', to: 'listings#new_phone', as: 'newphone'
-  get '/listings/new_laptop', to: 'listings#new_laptop', as: 'newlaptop'
+  #get '/reviews/new', to: 'reviews#new'
+  #post '/products/:id', to: 'reviews#create'
+  get '/listings/new_iphone', to: 'listings#new_iphone', as: 'newiphone'
+  get '/listings/new_macbook', to: 'listings#new_macbook', as: 'newmacbook'
   resources :listings, only: [:create, :show] do 
     resources :comments
   end
-  resources :products, only: [:show]
+  resources :products, only: [:show] do
+    resources :reviews
+  end
   get '/', to: 'products#index', as: 'home'
   resources :users, only: [:new, :create, :show]
   

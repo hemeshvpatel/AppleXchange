@@ -1,6 +1,10 @@
 class ListingsController < ApplicationController
     
-    def new_phone
+    def new_iphone
+        @listing = Listing.new
+    end
+
+    def new_macbook
         @listing = Listing.new
     end
 

@@ -1,13 +1,18 @@
 <h1> <%="#{@product.name} - Info Page" %> </h1>
 <h3> Model: <%=@product.model%> </h3>
 
-<h2>All Reviews:</h2>
-<h4> <%= form_for  "Submit a new review", reviews_new_path %> </h4>
+<h2>Reviews (<%= @product.reviews.size %>) </h2>
 
-
-<% @product.reviews.each do |listing| %>
-    <%= link_to "#{review.content} by #{review.user_id.name}", review_path(review)%> <br>
+<% @product.reviews.each do |review| %>
+    <%= review.user.first_name %>
+        <br>
+    <%= review.created_at %>
+        <br>
+    <%= review.content %>
+        <br><br>
 <% end %>
+
+<%= render partial: 'reviews/form' %>
 
 <h2>All Listings:</h2>
 <% @product.listings.each do |listing| %>
