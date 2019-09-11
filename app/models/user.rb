@@ -36,15 +36,17 @@ class User < ApplicationRecord
     end
 
     def approval_rating
-        mylikes = self.display_likes
-        myexchanges = self.exchanges.size + self.inactive_listings.size
-        
+        mylikes = self.display_likes.to_f
+        myexchanges = self.exchanges.size.to_f + self.inactive_listings.size.to_f
+        approvalpercent = ""
+
         if mylikes == 0 || myexchanges == 0 
             approvalpercent = "0%"
         else 
-            approvalrating = (mylikes / myexchanges) * 100
+            approvalrating = (mylikes.to_f / myexchanges.to_f) * 100
             approvalpercent = "#{approvalrating.to_i}%"
         end
+        approvalpercent
     end
 
 
