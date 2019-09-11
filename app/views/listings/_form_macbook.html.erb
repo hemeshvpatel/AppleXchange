@@ -1,0 +1,22 @@
+<%= form_for @listing do |form| %>
+  <%= form.label "Product: " %>
+  <%= form.collection_select :product_id, Product.where(:type_id => 2), :id, :name  %>
+    <br><br>
+  <%= form.label "Condition: " %>
+  <%= form.select :condition, ['new', 'mint', 'good', 'fair']%>
+    <br><br>
+  <%= form.label "Color: " %>
+  <%= form.select :color, ['silver', 'grey']%>
+    <br><br>
+  <%= form.label "Storage: " %>
+  <%= form.select :storage, ['128gb', '256gb', '512gb', '1tb']%>
+    <br><br>
+  <%= form.label "Memory: " %>
+  <%= form.select :memory, ['8gb', '16gb', '32gb']%>
+    <br><br>
+  <%= form.label "Price: "%>
+  <%= form.number_field :price, step: "0.01" %>
+    <br><br>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.submit "Submit Listing" %>
+<% end %>

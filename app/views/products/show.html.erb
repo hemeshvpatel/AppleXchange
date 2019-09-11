@@ -15,6 +15,6 @@
 <%= render partial: 'reviews/form' %>
 
 <h2>All Listings:</h2>
-<% @product.listings.each do |listing| %>
-    <%= link_to "#{listing.condition} - #{listing.color} - #{listing.storage} - #{listing.memory}", listing_path(listing)%> <br>
+<% @product.active_listings.each do |listing| %>
+    <%= link_to "Condition: #{listing.condition} - Color: #{listing.color} - Storage: #{listing.storage} - Memory: #{listing.memory} - Price: $#{listing.price}", listing_path(listing)%> <br>
 <% end %>

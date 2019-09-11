@@ -1,26 +1,3 @@
 <h1>Create a New iPhone Listing </h1>
 
-<%= form_for @listing do |form| %>
-  <%= form.label "Product: " %>
-  <%= form.collection_select :product_id, Product.where(:type_id => 1), :id, :name  %>
-    <br><br>
-  <%= form.label "Condition: " %>
-  <%= form.select :condition, ['new', 'mint', 'good', 'fair']%>
-    <br><br>
-  <%= form.label "Color: " %>
-  <%= form.select :color, ['silver', 'black', 'red', 'grey']%>
-    <br><br>
-  <%= form.label "Storage: " %>
-  <%= form.select :storage, ['16gb', '32gb', '64gb', '128gb']%>
-    <br><br>
-  <%= form.label "Memory: " %>
-  <%= form.select :memory, ['4gb', '6gb', '8gb']%>
-    <br><br>
-  <%= form.label "Price: "%>
-  <%= form.number_field :price, step: :any%>
-    <br><br>
-  <%= form.hidden_field :user_id, value: current_user.id %>
-  <%= form.submit "Create Listing" %>
-<% end %>
-
-
+<%= render partial: 'form_iphone' %>
