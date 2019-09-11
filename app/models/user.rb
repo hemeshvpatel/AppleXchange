@@ -22,8 +22,4 @@ class User < ApplicationRecord
         self.listings.select {|listing| listing.active == false}
     end
 
-
-
-    def sold_listing
-    end
 end
