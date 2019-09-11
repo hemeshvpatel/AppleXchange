@@ -1,8 +1,7 @@
 <h1> <%= "#{@listing.product.name} [#{@listing.product.model}]" %> </h1>
-<h4> <font color="red">"Currently in views/listings/show.html.erb"</font> </h4>
 
 <h3> Seller: <%= @listing.user.full_name %>
-<h3> Price: $<%= @listing.price%> </h3>
+<h3> Price: $<%= @listing.price%> </h3> 
 
 <h4> Condition: <%= @listing.condition %> </h4>
 <h4> Color: <%= @listing.color %> </h4>
@@ -22,5 +21,15 @@
 <% end %>
 
 
-<h2> Comments Section: </h2>
+<h3> Comments (<%= @listing.comments.size %>) </h3>
 
+<% @listing.comments.each do |comment| %>
+    <%= comment.user.first_name %>
+        <br>
+    <%= comment.created_at %> 
+        <br>
+    <%= comment.content %>
+        <br><br>
+<% end %>
+
+<%= render partial: 'comments/form' %>

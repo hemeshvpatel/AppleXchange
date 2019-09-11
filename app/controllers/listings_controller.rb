@@ -1,6 +1,10 @@
 class ListingsController < ApplicationController
     
-    def new_phone
+    def new_iphone
+        @listing = Listing.new
+    end
+
+    def new_macbook
         @listing = Listing.new
     end
 
@@ -11,6 +15,8 @@ class ListingsController < ApplicationController
 
     def show
         @listing = Listing.find(params[:id])
+        @comment = Comment.new
+        @comment.listing_id = @listing.id
     end
 
     private
