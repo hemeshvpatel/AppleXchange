@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/listings/new_macbook', to: 'listings#new_macbook', as: 'newmacbook'
   get '/listings/:id/edit_iphone', to: 'listings#edit_iphone', as: 'editiphone'
   get '/listings/:id/edit_macbook', to: 'listings#edit_macbook', as: 'editmacbook'
+  post '/exchanges/:id', to: 'exchanges#add_like'
   resources :listings, only: [:create, :show, :update] do 
     resources :comments
   end
