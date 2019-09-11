@@ -31,6 +31,7 @@
     <% elsif @listing.user.id != current_user.id %>
         <% if current_user.balance < @listing.price %>
             <h3>You don't have enough money to purchase this listing</h3>
+            <h3><%= link_to "Click here to add money to your account", addmoney_path %></h3>
         <% else %>
             <%= f.submit "Buy Now" %>
         <% end %>
