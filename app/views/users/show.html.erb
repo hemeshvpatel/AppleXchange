@@ -1,6 +1,11 @@
 <h1><%= @user.username %></h1>
 
-<h2>My Transactions:</h2>
+<h2>Balance: $<%= @user.balance %></h2>
+
+<h2>My Purchases:</h2>
+<% @user.exchanges.each do |exchange| %>
+    <%= link_to exchange.listing.product.name, exchange_path(exchange) %><br>
+<% end %>
 
 <h2>My Active Listings:</h2>
 <% @user.active_listings.each do |listing| %>
@@ -12,3 +17,5 @@
     <%= link_to listing.product.name, listing_path(listing) %><br>
 <% end %>
 
+
+<%= button_to "Logout", logout_path, method: 'delete' %>

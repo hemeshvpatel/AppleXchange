@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :exchanges, only: [:show, :create]
   #post '/listings/:id', to: 'comments#create'
   #post '/products/:id', to: 'reviews#create'
   get '/listings/new_phone', to: 'listings#new_phone', as: 'newphone'
@@ -11,6 +12,6 @@ Rails.application.routes.draw do
   #sessions routes
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,6 +1,7 @@
 class Listing < ApplicationRecord
     belongs_to :product
     belongs_to :user
+    has_one :exchange
     has_many :comments
 
     def set_user!(user)
