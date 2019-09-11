@@ -3,8 +3,10 @@ class User < ApplicationRecord
     has_many :products, through: :listings
     has_many :reviews
     has_many :comments
+    has_many :exchanges
     validates :username, uniqueness: true
     validates :username, length: {minimum: 4}
+
 
     has_secure_password
 
@@ -18,5 +20,10 @@ class User < ApplicationRecord
 
     def inactive_listings
         self.listings.select {|listing| listing.active == false}
+    end
+
+
+
+    def sold_listing
     end
 end

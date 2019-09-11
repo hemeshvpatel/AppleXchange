@@ -8,6 +8,19 @@
 <h4> Storage: <%= @listing.storage %> </h4>
 <h4> Memory: <%= @listing.memory %> </h4>
 
+<%= form_with scope: :exchange, url: exchanges_path do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :listing_id, value: @listing.id%>
+    <% if @listing.active == false %>
+        <h2>SOLD</h2>
+    <% elsif current_user.balance < @listing.price %>
+        <h3>You don't have enough money to purchase this listing</h3>
+    <% else %>
+        <%= f.submit "Buy Now" %>
+    <% end %>
+<% end %>
+
+
 <h3> Comments (<%= @listing.comments.size %>) </h3>
 
 <% @listing.comments.each do |comment| %>
