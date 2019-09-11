@@ -17,6 +17,17 @@ class UsersController < ApplicationController
     def show
       @user = User.find_by(id: session[:user_id])
     end
+
+    def add
+      @user = User.find_by(id: session[:user_id])
+    end
+
+    def add_money
+      @user = User.find_by(id: session[:user_id])
+      @user.balance += params[:user][:amount].to_f
+      @user.save
+      redirect_to user_path(@user)
+    end
      
       private
      

@@ -7,6 +7,8 @@
 
 <h2>Balance: $<%= number_with_precision(@user.balance, precision: 2) %></h2>
 
+<%= link_to "Add to Balance", addmoney_path %>
+
 <h2>My Purchases:</h2>
 <% @user.exchanges.each do |exchange| %>
     <%= link_to exchange.listing.product.name, exchange_path(exchange) %><br>
