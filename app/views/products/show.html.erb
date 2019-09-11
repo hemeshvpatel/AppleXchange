@@ -1,12 +1,15 @@
 <h1> <%="#{@product.name} - Info Page" %> </h1>
-<h4> <font color="red">"Currently in views/products/show.html.erb"</font> </h4>
+<h3> Model: <%=@product.model%> </h3>
 
-<h4> Model: <%=@product.model%> </h4>
+<h2>All Reviews:</h2>
+<h4> <%= form_for  "Submit a new review", reviews_new_path %> </h4>
+
 
 <% @product.reviews.each do |listing| %>
     <%= link_to "#{review.content} by #{review.user_id.name}", review_path(review)%> <br>
 <% end %>
 
+<h2>All Listings:</h2>
 <% @product.listings.each do |listing| %>
     <%= link_to "#{listing.condition} - #{listing.color} - #{listing.storage} - #{listing.memory}", listing_path(listing)%> <br>
 <% end %>

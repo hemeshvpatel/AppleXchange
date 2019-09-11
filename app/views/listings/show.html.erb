@@ -9,5 +9,15 @@
 <h4> Storage: <%= @listing.storage %> </h4>
 <h4> Memory: <%= @listing.memory %> </h4>
 
-<h2> Comments Section: </h2>
+<h3> Comments (<%= @listing.comments.size %>) </h3>
 
+<% @listing.comments.each do |comment| %>
+    <%= comment.user.first_name %>
+        <br>
+    <%= comment.created_at %> 
+        <br>
+    <%= comment.content %>
+        <br><br>
+<% end %>
+
+<%= render partial: 'comments/form' %>

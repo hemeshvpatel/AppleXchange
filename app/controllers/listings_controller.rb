@@ -11,6 +11,8 @@ class ListingsController < ApplicationController
 
     def show
         @listing = Listing.find(params[:id])
+        @comment = Comment.new
+        @comment.listing_id = @listing.id
     end
 
     private
