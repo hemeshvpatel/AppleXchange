@@ -16,5 +16,5 @@
 
 <h2>All Listings:</h2>
 <% @product.active_listings.each do |listing| %>
-    <%= link_to "Condition: #{listing.condition} - Color: #{listing.color} - Storage: #{listing.storage} - Memory: #{listing.memory} - Price: $#{listing.price}", listing_path(listing)%> <br>
+    <%= link_to "Condition: #{listing.condition} - Color: #{listing.color} - Storage: #{listing.storage} - Memory: #{listing.memory} - Price: $#{number_with_precision(listing.price, precision: 2)}", listing_path(listing)%> <br>
 <% end %>

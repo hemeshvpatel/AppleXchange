@@ -3,5 +3,5 @@
 Buyer: <%= @exchange.user.full_name %><br>
 Seller: <%= @exchange.listing.user.full_name %><br>
 
-Transaction Price: $<%= @exchange.listing.price %><br>
+Transaction Price: $<%= number_with_precision(@exchange.listing.price, precision: 2) %><br>
 

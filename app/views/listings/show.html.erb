@@ -28,10 +28,12 @@
     <%= f.hidden_field :listing_id, value: @listing.id%>
     <% if @listing.active == false %>
         <h2>SOLD</h2>
-    <% elsif current_user.balance < @listing.price %>
-        <h3>You don't have enough money to purchase this listing</h3>
-    <% else %>
-        <%= f.submit "Buy Now" %>
+    <% elsif @listing.user.id != current_user.id %>
+        <% if current_user.balance < @listing.price %>
+            <h3>You don't have enough money to purchase this listing</h3>
+        <% else %>
+            <%= f.submit "Buy Now" %>
+        <% end %>
     <% end %>
 <% end %>
 
