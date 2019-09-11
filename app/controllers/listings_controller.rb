@@ -19,6 +19,24 @@ class ListingsController < ApplicationController
         @comment.listing_id = @listing.id
     end
 
+    def edit_iphone
+        @listing = Listing.find(params[:id])
+    end
+
+    def edit_macbook
+        @listing = Listing.find(params[:id])
+    end
+
+    def update
+        @listing = Listing.find(params[:id])
+        @listing.update(listing_params)
+
+        #send a flash notice on the page
+        flash[:notice] = "Successfully updated your listing!"
+
+        redirect_to listing_path(@listing)
+    end
+
     private
 
     def listing_params

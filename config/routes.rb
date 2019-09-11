@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   #post '/products/:id', to: 'reviews#create'
   get '/listings/new_iphone', to: 'listings#new_iphone', as: 'newiphone'
   get '/listings/new_macbook', to: 'listings#new_macbook', as: 'newmacbook'
-  resources :listings, only: [:create, :show] do 
+  get '/listings/:id/edit_iphone', to: 'listings#edit_iphone', as: 'editiphone'
+  get '/listings/:id/edit_macbook', to: 'listings#edit_macbook', as: 'editmacbook'
+  resources :listings, only: [:create, :show, :update] do 
     resources :comments
   end
   resources :products, only: [:show] do

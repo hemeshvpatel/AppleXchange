@@ -1,7 +1,22 @@
 <h1> <%= "#{@listing.product.name} [#{@listing.product.model}]" %> </h1>
 
-<h3> Seller: <%= @listing.user.full_name %>
-<h3> Price: $<%= @listing.price%> </h3> 
+<%# flash notice when updated form is sent %>
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<h3> Seller: <%= @listing.user.full_name %> </h3>
+
+<%# ability for Seller to edit listing order %>
+<% if @listing.user_id == current_user.id %>
+        <% if @listing.product.type_id == 1 %>
+            <%= link_to "Edit my iPhone listing", editiphone_path(@listing) %>
+        <% else %> 
+            <%= link_to "Edit my MacBook listing", editmacbook_path(@listing) %>
+        <% end %>
+<% end %>
+
+<h3> Price: $<%= number_with_precision(@listing.price, precision: 2) %> </h3> 
 
 <h4> Condition: <%= @listing.condition %> </h4>
 <h4> Color: <%= @listing.color %> </h4>
@@ -24,11 +39,9 @@
 <h3> Comments (<%= @listing.comments.size %>) </h3>
 
 <% @listing.comments.each do |comment| %>
-    <%= comment.user.first_name %>
+    <%= comment.user.first_name %> posted <%= distance_of_time_in_words(comment.listing.created_at, comment.created_at) %> later at <%= comment.created_at%>
         <br>
-    <%= comment.created_at %> 
-        <br>
-    <%= comment.content %>
+    <font color="red"> <%= comment.content %> </font>
         <br><br>
 <% end %>
 
