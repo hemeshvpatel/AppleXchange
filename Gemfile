@@ -56,3 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Bootstrap gems
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
+
+# rspec gem to write tests
+gem 'rspec'
+gem 'rspec-rails'
