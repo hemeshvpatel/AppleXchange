@@ -4,7 +4,7 @@
     <br><br>
 <h3> Seller: <%= @exchange.listing.user.full_name %>
     <br><br>
-<h3> Transaction Price: $<%= number_with_precision(@exchange.listing.price, precision: 2) %> </h3> 
+<h3> Transaction Price: $<%= @exchange.listing.display_price %> </h3> 
     <br><br>
 
 <% if @exchange.listing.user_id == current_user.id %>

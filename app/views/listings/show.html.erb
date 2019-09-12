@@ -16,7 +16,7 @@
         <% end %>
 <% end %>
 
-<h3> Price: $<%= number_with_precision(@listing.price, precision: 2) %> </h3> 
+<h3> Price: $<%= @listing.display_price %> </h3> 
 
 <h4> Condition: <%= @listing.condition %> </h4>
 <h4> Color: <%= @listing.color %> </h4>
@@ -42,7 +42,7 @@
 <h3> Comments (<%= @listing.comments.size %>) </h3>
 
 <% @listing.comments.each do |comment| %>
-    <%= comment.user.first_name %> posted <%= distance_of_time_in_words(comment.listing.created_at, comment.created_at) %> later at <%= comment.created_at%>
+    <%= comment.user.first_name %> <%= comment.display_timestamp %>
         <br>
     <font color="red"> <%= comment.content %> </font>
         <br><br>
