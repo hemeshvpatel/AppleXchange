@@ -2,14 +2,30 @@ class Exchange < ApplicationRecord
     belongs_to :listing
     belongs_to :user
 
+    def buyer
+        self.user
+    end
+
+    def seller
+        self.listing.user
+    end
+
     def buy
-        self.user.balance = self.user.balance - self.listing.price
-        self.user.save
+        buyer.balance = buyer.balance - self.listing.price
+        buyer.save
     end
 
     def sell
-        self.listing.user.balance = self.listing.user.balance + self.listing.price
-        self.listing.user.save
+        seller.balance = seller.balance + self.listing.price
+        seller.save
     end
-    
+
+    def display_purchase
+        "#{self.listing.product.name} purchased from #{self.seller.full_name} on #{self.created_at.strftime("%b %e %Y")}"
+    end
+
+    def display_sale
+        "#{self.listing.product.name} sold to #{self.buyer.full_name} on #{self.created_at.strftime("%b %e %Y")}"
+    end
+
 end

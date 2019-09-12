@@ -22,6 +22,26 @@ class User < ApplicationRecord
         self.listings.select {|listing| listing.active == false}
     end
 
+    def sales
+        self.inactive_listings.map {|listing| listing.exchange}
+    end
+
+    def purchases
+        self.exchanges
+    end
+
+    def total_purchases
+        purchases.size
+    end 
+
+    def total_sales
+        sales.size
+    end
+
+    def total_exchanges
+        total_purchases + total_sales
+    end
+
     def display_likes
         current_likes = self.likes
         myexchanges = self.exchanges.size + self.inactive_listings.size
@@ -50,8 +70,7 @@ class User < ApplicationRecord
     end
 
     def display_balance
-        number_with_precision(self.balance, precision: 2)
+        '%.2f' % self.balance
     end
-
 
 end
