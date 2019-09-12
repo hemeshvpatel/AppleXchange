@@ -1,6 +1,6 @@
 class Listing < ApplicationRecord
     belongs_to :product
-    belongs_to :user
+    belongs_to :user, optional: true
     has_one :exchange
     has_many :comments
 
