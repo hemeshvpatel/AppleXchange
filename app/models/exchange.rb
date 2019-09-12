@@ -11,4 +11,5 @@ class Exchange < ApplicationRecord
         self.listing.user.balance = self.listing.user.balance + self.listing.price
         self.listing.user.save
     end
+    
 end

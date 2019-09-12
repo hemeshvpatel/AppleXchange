@@ -8,4 +8,9 @@ class Listing < ApplicationRecord
         self.user_id = user.id
         self.save!
     end
+
+    def display_price
+        '%.2f' % self.price
+    end
+
 end

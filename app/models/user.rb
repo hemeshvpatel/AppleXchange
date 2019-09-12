@@ -49,5 +49,9 @@ class User < ApplicationRecord
         approvalpercent
     end
 
+    def display_balance
+        number_with_precision(self.balance, precision: 2)
+    end
+
 
 end

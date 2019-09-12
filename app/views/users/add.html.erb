@@ -1,4 +1,4 @@
-<h2>Current Balance: <%= number_with_precision(@user.balance, precision: 2) %></h2>
+<h2>Current Balance: <%= @user.display_balance %></h2>
 
 <label>Please select a payment option:</label>
 <select>
