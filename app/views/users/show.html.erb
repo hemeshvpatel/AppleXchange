@@ -4,22 +4,33 @@
 <h4>Likes: <%= @user.display_likes %> </h4> 
 <h4>Total Exchanges: <%= @user.exchanges.size + @user.inactive_listings.size  %> </h4>
 <h4>Approval Rating: <%= @user.approval_rating %> </h4>
-
-<h2>Balance: $<%= @user.display_balance %></h2>
-
-<%= link_to "Add to Balance", addmoney_path %>
-
+    <br>
+<h4> Balance: $<%= @user.display_balance %> </h4>
+<h5> <%= link_to "Add to Balance", addmoney_path %> </h5>
+    <br>
+    <br>
 <h2>My Purchases:</h2>
 <% @user.exchanges.each do |exchange| %>
-    <%= link_to exchange.listing.product.name, exchange_path(exchanggit ) %><br>
+    <%= link_to exchange.display_purchase, exchange_path(exchange) %><br>
 <% end %>
+    
+    <br>
+
+<h2>My Sales:</h2>
+<% @user.sales.each do |exchange| %>
+    <%= link_to exchange.display_sale, exchange_path(exchange) %><br>
+<% end %>
+
+    <br>
 
 <h2>My Active Listings:</h2>
 <% @user.active_listings.each do |listing| %>
     <%= link_to listing.product.name, listing_path(listing) %><br>
 <% end %>
 
-<h2>Closed Listings</h2>
+    <br>
+
+<h2>My Closed Listings</h2>
 <% @user.inactive_listings.each do |listing| %>
     <%= link_to listing.product.name, listing_path(listing) %><br>
 <% end %>
