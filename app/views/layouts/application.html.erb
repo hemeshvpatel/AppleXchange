@@ -7,21 +7,49 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
 
-  <nav>
-    <%= link_to "AppleXchange", home_path %>
+  <nav class="navbar navbar-dark bg-secondary">
+    <a class="navbar-brand" href=<%= home_path %>>AppleXchange</a>
 
-    <% if !logged_in? %>
-      <%= render '/sessions/form'%>
-      <%= link_to "Register", new_user_path %>
-    <% else %>
-      <%= current_user.full_name %>
-      <%= link_to "View Profile", user_path(current_user.id) %>
-      <%= button_to "Logout", logout_path, method: 'delete' %>
-      <%= link_to "Create a New iPhone Listing", newiphone_path %>
-      <%= link_to "Create a New MacBook Listing", newmacbook_path %>
-    <% end %>
+      <% if !logged_in? %>
+        <%= render '/sessions/form'%>
+
+      <ul class="navbar-nav navbar-right">
+        <li class="nav-item active">
+          <a class="nav-link" href=<%= new_user_path %>>Register</a>
+        </li>
+      </ul>
+
+      <% else %>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Create a Listing
+        </button>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href=<%= newiphone_path %>>iPhone</a>
+          <a class="dropdown-item" href=<%= newmacbook_path %>>Macbook</a>
+        </div>
+      </div>
+
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.full_name %>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href=<%= user_path(current_user.id) %>>View Profile</a>
+          <a class="dropdown-item" href=<%= logout_path %> data-method="delete">Logout</a>
+          <a class="dropdown-item" href="#">Edit Profile</a>
+        </div>
+      </div>
+      <% end %>
   </nav>
 
   <body>
