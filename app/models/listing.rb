@@ -3,6 +3,7 @@ class Listing < ApplicationRecord
     belongs_to :user, optional: true
     has_one :exchange
     has_many :comments
+    validates :price, presence: true
 
     def set_user!(user)
         self.user_id = user.id
