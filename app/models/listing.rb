@@ -1,6 +1,6 @@
 class Listing < ApplicationRecord
     belongs_to :product
-    belongs_to :user
+    belongs_to :user, optional: true
     has_one :exchange
     has_many :comments
 
@@ -8,4 +8,9 @@ class Listing < ApplicationRecord
         self.user_id = user.id
         self.save!
     end
+
+    def display_price
+        '%.2f' % self.price
+    end
+
 end
