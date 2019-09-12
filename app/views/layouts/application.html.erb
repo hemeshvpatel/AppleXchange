@@ -51,8 +51,8 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href=<%= user_path(current_user.id) %>>View Profile</a>
+          <a class="dropdown-item" href=<%= edit_user_path(current_user.id) %>>Edit Profile</a>
           <a class="dropdown-item" href=<%= logout_path %> data-method="delete">Logout</a>
-          <a class="dropdown-item" href="#">Edit Profile</a>
         </div>
       </div>
       <% end %>

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :reviews
   end
   get '/', to: 'products#index', as: 'home'
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :edit, :update]
   get '/users/:id/add', to: 'users#add', as: 'addmoney'
   post '/users/:id', to: 'users#add_money'
   #sessions routes
