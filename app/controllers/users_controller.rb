@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_login, only: [:show]
 
     def new
-      render layout: false
+      #render layout: false
     end
 
     def create
