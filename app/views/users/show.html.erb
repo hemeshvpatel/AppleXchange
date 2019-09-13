@@ -1,39 +1,50 @@
 <div class="container">
-<h1><%= @user.full_name %></h1>
-<h2>Username: <%= @user.username %></h2>
-<h4>Likes: <%= @user.display_likes %> </h4> 
-<h4>Total Exchanges: <%= @user.exchanges.size + @user.inactive_listings.size  %> </h4>
-<h4>Approval Rating: <%= @user.approval_rating %> </h4>
-    <br>
-<h4> Balance: $<%= @user.display_balance %> </h4>
-<h5> <%= link_to "Add to Balance", addmoney_path %> </h5>
-    <br>
-    <br>
-<h2>My Purchases:</h2>
-<% @user.exchanges.each do |exchange| %>
-    <%= link_to exchange.display_purchase, exchange_path(exchange) %><br>
-<% end %>
-    
-    <br>
 
-<h2>My Sales:</h2>
-<% @user.sales.each do |exchange| %>
-    <%= link_to exchange.display_sale, exchange_path(exchange) %><br>
-<% end %>
-
-    <br>
-
-<h2>My Active Listings:</h2>
-<% @user.active_listings.each do |listing| %>
-    <%= link_to listing.product.name, listing_path(listing) %><br>
-<% end %>
-
-    <br>
-
-<h2>My Closed Listings</h2>
-<% @user.inactive_listings.each do |listing| %>
-    <%= link_to listing.product.name, listing_path(listing) %><br>
-<% end %>
+<div class="row">
+    <div class="col-sm-6">
+        <h1><%= @user.full_name %> <%= "(#{@user.approval_rating})" %></h1>
+            <br>
+        <h4>Username: <%= @user.username %></h4>
+        <h4>Likes: <%= @user.display_likes %> </h4> 
+        <h4>Total Exchanges: <%= @user.exchanges.size + @user.inactive_listings.size  %> </h4>
+            <br>
+        <h4> Balance: $<%= @user.display_balance %> </h4>
+        <h5> <%= link_to "Add to Balance", addmoney_path %> </h5>
+    </div>
+    <div class="col-sm-6">
+        <br>
+        <img src="https://vignette.wikia.nocookie.net/pokemon/images/4/4f/Taking_an_apple_from_a_tree.gif/revision/latest/scale-to-width-down/185?cb=20160301210137" class="img-responsive center-block" width="200px">
+    </div>
+</div>   
+    <br><br>
+<div class="row">
+    <div class="col-sm-6">
+        <h2>My Purchases:</h2>
+        <% @user.exchanges.each do |exchange| %>
+            <%= link_to exchange.display_purchase, exchange_path(exchange) %><br>
+        <% end %>
+    </div>
+    <div class="col-sm-6">
+        <h2>My Sales:</h2>
+        <% @user.sales.each do |exchange| %>
+            <%= link_to exchange.display_sale, exchange_path(exchange) %><br>
+        <% end %>
+    </div>
+</div>
+    <br><br>
+<div class="row">
+    <div class="col-sm-6">
+        <h2>My Active Listings:</h2>
+        <% @user.active_listings.each do |listing| %>
+            <%= link_to "#{listing.product.name} created on #{listing.created_at.strftime("%b %e %Y")}", listing_path(listing) %><br>
+        <% end %>
+    </div>
+    <div class="col-sm-6">
+        <h2>My Closed Listings</h2>
+        <% @user.inactive_listings.each do |listing| %>
+            <%= link_to "#{listing.product.name} closed on #{listing.updated_at.strftime("%b %e %Y")}", listing_path(listing)%><br>
+        <% end %>
+    </div>
 </div>
 
-
+</div>
