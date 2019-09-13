@@ -25,5 +25,6 @@ A web application for buying and selling iPhones and Macbooks.
 * After making a transaction, there will be a 'like' button on the exchange page. If you think the transaction went smoothly, you can click  that button and will increase the other user's number of likes, which also increases their approval rating! 
 
 ## Contributors
-* Created by Jason Le and Hamesh Patel as their second project at Flatiron School's Software Engineering bootcamp in Austin.
+* Created by Jason Le and Hamesh Patel as their second project at Flatiron School's Software Engineering bootcamp in Austin, with a goal of demonstrating an understanding of MVC design patterns, RESTful routes, and CRUD functions. 
+* Project was created using Ruby on Rails, ActiveRecord, and basic bootstrap. 
 
