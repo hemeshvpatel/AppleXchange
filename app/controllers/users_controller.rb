@@ -5,13 +5,15 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(user_params)
-        if @user.valid?
-          redirect_to home_path
-        else
-          redirect_to new_user_path
-        end
-    end
+      @user = User.create(user_params)
+      if @user.valid?
+        flash[:notice] = "Successfully created account!"
+        redirect_to home_path
+      else
+        flash[:alert] = @user.errors.full_messages
+        redirect_to new_user_path
+      end
+  end
 
     def show
       @user = User.find_by(id: session[:user_id])
