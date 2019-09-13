@@ -43,8 +43,10 @@ class UsersController < ApplicationController
       @user = User.find_by(id: session[:user_id])
       @user.update(user_params)
       if @user.valid?
+        flash[:notice] = "Successfully updated account!"
         redirect_to user_path(@user)
       else
+        flash[:alert] = @user.errors.full_messages
         redirect_to edit_user_path(@user)
       end
     end
