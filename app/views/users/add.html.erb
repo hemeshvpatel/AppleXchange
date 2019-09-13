@@ -1,3 +1,4 @@
+<div class="container">
 <h2>Current Balance: <%= @user.display_balance %></h2>
 
 <label>Please select a payment option:</label>
@@ -14,3 +15,4 @@
     $<%= form.number_field :amount, step: "0.01" %><br>
     <%= form.submit "Submit" %>
 <% end %>
+</div>

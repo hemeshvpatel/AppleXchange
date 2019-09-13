@@ -8,12 +8,10 @@
     </div>
 
     <div class="col-sm-8 my-auto">
-        <div class="justify-content-left align-self-center">
             <h2>All Listings:</h2>
                 <% @product.active_listings.each do |listing| %>
                 <%= link_to "Condition: #{listing.condition} - Color: #{listing.color} - Storage: #{listing.storage} - Memory: #{listing.memory} - Price: $#{number_with_precision(listing.price, precision: 2)} - Seller: #{listing.user.first_name}(#{listing.user.approval_rating})", listing_path(listing)%> <br>
             <% end %>
-        </div>
     </div>
 </div>
 

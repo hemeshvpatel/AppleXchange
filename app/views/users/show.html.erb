@@ -1,4 +1,4 @@
-
+<div class="container">
 <h1><%= @user.full_name %></h1>
 <h2>Username: <%= @user.username %></h2>
 <h4>Likes: <%= @user.display_likes %> </h4> 
@@ -34,5 +34,6 @@
 <% @user.inactive_listings.each do |listing| %>
     <%= link_to listing.product.name, listing_path(listing) %><br>
 <% end %>
+</div>
 
 

@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for :user, url: users_path do |f| %>
   First Name: <%= f.text_field :first_name %><br>
   Last Name: <%= f.text_field :last_name %><br>
@@ -8,3 +9,4 @@
   <%= f.hidden_field :balance, value: 1000.00 %>
   <%= f.submit "Submit" %>
 <% end %>
+</div>

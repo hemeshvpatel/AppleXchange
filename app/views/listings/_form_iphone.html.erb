@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for @listing do |form| %>
   <%= form.label "Product: " %>
   <%= form.collection_select :product_id, Product.where(:type_id => 1), :id, :name  %>
@@ -18,5 +19,6 @@
   <%= form.number_field :price, step: "0.01" %>
     <br><br>
   <%= form.hidden_field :user_id, value: current_user.id %>
-  <%= form.submit "Submit Listing" %>
+  <%= form.submit "Submit" %>
 <% end %>
+</div>
