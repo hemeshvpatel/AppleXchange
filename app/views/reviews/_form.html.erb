@@ -1,9 +1,14 @@
 <%= form_for [@product, @review] do |f| %>
-    <%= f.label "Post a new review ..." %><br/>
+    <h2> <%= f.label "Post a new review ..." %> </h2>
     <%= f.text_area :content %>
         <br>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :product_id, value: @product.id %>
-    <%= f.submit 'Post review' %>
+    <%= f.submit 'Submit' %>
   </p>
 <% end %>
+
+<div class="form-group">
+  <label for="comment">Comment:</label>
+  <textarea class="form-control" rows="5" id="comment"></textarea>
+</div>
