@@ -4,7 +4,7 @@
             <%= image_tag(@product.image_url) %>
                 <br>
             <h2> <%= @product.name %> </h2>
-            <h3> Model: <%=@product.model%> </h3>
+            <h4> Model: <%=@product.model%> </h4>
     </div>
 
     <div class="col-sm-8 my-auto">
@@ -34,8 +34,7 @@
         <h2>Reviews (<%= @product.reviews.size %>) </h2>
 
         <% @product.reviews.each do |review| %>
-            <%= review.user.first_name %> <%= review.display_timestamp %>
-                <br>
+            <h5> <%= review.user.first_name %> <%= review.display_timestamp %> </h5>
             <%= review.content %>
                 <br><br>
         <% end %>
