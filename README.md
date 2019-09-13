@@ -15,10 +15,11 @@ A web application for buying and selling iPhones and Macbooks.
 * You can click on one of the products on the front page to take a look at the product information, as well as all the listings other people have put up for sale of that product.
 * Click on one of these listings to view the listing information which includes the product's specs, condition, seller, and the listing price.
 * From here you have the option to buy the listing if you're interested and have enough money. If you choose to do so, both you and the seller's account balances will be updated based on the transaction, and both will now have a record of the exchange.
-* If you would like to create a listing, simply click on 'Create a Listing' located on the navigation bar, which will give you a choice between listing an iPhone or Macbook. This will take you to a form to fill out to put your device up for sale.
+* If you would like to create a listing, simply click on 'Create a Listing' on the navigation bar, which will give you a choice between listing an iPhone or Macbook. This will take you to a form to fill out to put your device up for sale.
 
 
 ## Features
+* Your profile page displays your account information as well as all your transactions and listings.
 * If you want add money to your account, simply go to your profile and click on 'Add to Balance'. 
 * You are able to leave reviews on products on the product info page.
 * You are also able to comment on listings.
@@ -26,5 +27,6 @@ A web application for buying and selling iPhones and Macbooks.
 
 ## Contributors
 * Created by Jason Le and Hamesh Patel as their second project at Flatiron School's Software Engineering bootcamp in Austin, with a goal of demonstrating an understanding of MVC design patterns, RESTful routes, and CRUD functions. 
-* Project was created using Ruby on Rails, ActiveRecord, and basic bootstrap. 
+* Project was created using Ruby on Rails, ActiveRecord, and some basic bootstrap. 
+* Credits to DeviantArt user pichu90 for the profile image, and the Pokemon Wiki for the pikachu gif.
 
