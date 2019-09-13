@@ -4,9 +4,12 @@ class User < ApplicationRecord
     has_many :reviews
     has_many :comments
     has_many :exchanges
+    validates :first_name, presence: true
+    validates :last_name, presence: true
+    validates :username, presence: true
     validates :username, uniqueness: true
     validates :username, length: {minimum: 4}
-
+    validates :balance, presence: true
 
     has_secure_password
 
