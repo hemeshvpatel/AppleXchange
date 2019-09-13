@@ -1,5 +1,4 @@
 class ListingsController < ApplicationController
-    before_action :require_login
     
     def new_iphone
         @listing = Listing.new
@@ -42,11 +41,6 @@ class ListingsController < ApplicationController
 
     def listing_params
         params.require(:listing).permit(:user_id, :product_id, :condition, :color, :storage, :memory, :price, :active)
-    end
-
-    def require_login
-        flash[:error] = "You must be logged in to continue."
-        redirect_to home_path unless session.include?(:user_id)
     end
 
 end
