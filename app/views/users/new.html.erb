@@ -9,4 +9,11 @@
   <%= f.hidden_field :balance, value: 1000.00 %>
   <%= f.submit "Submit" %>
 <% end %>
+
+<% if flash[:alert] %>
+  <% flash[:alert].each do |alert| %>
+    <div class="alert text-danger"><%= alert %></div>
+  <% end %>
+<% end %>
+
 </div>
