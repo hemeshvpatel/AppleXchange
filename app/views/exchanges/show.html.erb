@@ -1,16 +1,25 @@
-<h1>Item Sold: <%= @exchange.listing.product.name %></h1>
-
-<h3> Buyer: <%= @exchange.user.full_name %> 
-    <br><br>
-<h3> Seller: <%= @exchange.listing.user.full_name %>
-    <br><br>
-<h3> Transaction Price: $<%= @exchange.listing.display_price %> </h3> 
-    <br><br>
-
-<% if @exchange.listing.user_id == current_user.id %>
-    Like the Buyer if this transaction went smooth!
-        <%= button_to "Like", exchange_path(@exchange)%>
-<% else %>
-    Like the Seller if this transaction went smooth!
-        <%= button_to "Like", exchange_path(@exchange)%>
-<% end %>
+<div class="container">
+    <div class="row"> 
+        <div class="col-sm-6">
+                <h1>Item Sold: <%= @exchange.listing.product.name %></h1>
+                    <br>
+                <h3> Buyer: <%= @exchange.user.full_name %> 
+                    <br><br>
+                <h3> Seller: <%= @exchange.listing.user.full_name %>
+                    <br><br>
+                <h3> Transaction Price: $<%= @exchange.listing.display_price %> </h3> 
+                    <br><br>
+                <% if @exchange.listing.user_id == current_user.id %>
+                    Like the Buyer if this transaction went smoothly!
+                        <%= button_to "Like", exchange_path(@exchange)%>
+                <% else %>
+                    Like the Seller if this transaction went smoothly!
+                        <%= button_to "Like", exchange_path(@exchange)%>
+                <% end %>
+        </div>
+        <div class="col-sm-6 my-auto">
+            <br>
+            <img src="https://vignette.wikia.nocookie.net/pokemon/images/4/4f/Taking_an_apple_from_a_tree.gif/revision/latest/scale-to-width-down/185?cb=20160301210137" class="img-responsive center-block" width="425px">
+        </div>
+    </div>
+</div>
