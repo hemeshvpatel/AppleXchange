@@ -35,7 +35,7 @@ class ExchangesController < ApplicationController
             end
         end
         
-        redirect_to exchange_path(@exchange)
+        redirect_to user_path(current_user.id)
     end
 
     private
