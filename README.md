@@ -3,7 +3,7 @@ A web application for buying and selling iPhones and Macbooks.
 
 ## Installation
 * To begin, clone this repo to your local machine using ```https://github.com/hemeshvpatel/AppleXchange.git``` 
-* Open the file using your favorite editor and run ```bundle install``` in your terminal
+* Open the file using your favorite editor and run ```bundle install``` in your terminal.
 * Then, run ```rake db:migrate``` followed by ```rake db:seed``` in your terminal.
 * Finally, run ```rails s``` in your terminal and open the localhost on your browser.
 
